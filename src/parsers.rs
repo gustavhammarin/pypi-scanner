@@ -5,7 +5,7 @@ use pep508_rs::{
     pep440_rs::{Version, VersionSpecifiers},
 };
 
-use crate::http::PypiRequirements;
+use crate::http::{PypiRequirements, get_requires_dist};
 
 pub fn parse_deps(
     reqs: PypiRequirements
@@ -43,7 +43,7 @@ pub fn parse_deps(
 async fn test_parse_deps() {
     let client = reqwest::Client::new();
 
-    let requirements = get_requires_dist(&client, "twine", "4.0.2").await.unwrap();
+    let requirements: PypiRequirements = get_requires_dist(&client, "twine", "4.0.2").await.unwrap();
 
     let parsed_result = parse_deps(requirements);
 

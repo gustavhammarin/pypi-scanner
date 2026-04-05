@@ -14,4 +14,10 @@ pub enum AppError {
 
     #[error("task join failed: {0}")]
     Join(#[from] tokio::task::JoinError),
+
+    #[error("task join failed: {0}")]
+    SerdeJson(#[from] serde_json::Error),
+
+    #[error("not found: {0}")]
+    NotFound(String)
 }
