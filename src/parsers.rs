@@ -5,7 +5,7 @@ use pep508_rs::{
     pep440_rs::{Version, VersionSpecifiers},
 };
 
-use crate::http::PypiRequirements;
+use crate::http::{PypiRequirements, get_requires_dist};
 
 pub fn parse_deps(
     reqs: PypiRequirements

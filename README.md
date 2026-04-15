@@ -35,7 +35,7 @@ Download a pre-built binary from the [releases page](../../releases) for your pl
 ## Usage
 
 ```
-pypi-scanner <PACKAGE> <VERSION>
+pypi-scanner [OPTIONS] <PACKAGE> <VERSION>
 ```
 
 ### Arguments
@@ -44,6 +44,12 @@ pypi-scanner <PACKAGE> <VERSION>
 |---|---|---|
 | `PACKAGE` | The PyPI package name to scan | `requests` |
 | `VERSION` | The exact version to scan | `2.28.0` |
+
+### Options
+
+| Flag | Description |
+|---|---|
+| `--toon` | Print results as [toon](https://crates.io/crates/toon)-encoded JSON instead of launching the TUI |
 
 ### Example
 
@@ -60,6 +66,12 @@ Results are shown in an interactive TUI. Navigate with:
 | `q` / `Esc` | Quit |
 
 The detail panel shows an advisory URL — Ctrl+click to open it in your browser.
+
+To print results as toon-encoded JSON (useful for scripting or piping):
+
+```sh
+pypi-scanner --toon requests 2.28.0
+```
 
 ## How it works
 
